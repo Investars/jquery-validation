@@ -118,10 +118,14 @@ test("number", function() {
 	ok( method( "-123,000" ), "Valid number" );
 	ok( method( "123,000.00" ), "Valid number" );
 	ok( method( "-123,000.00" ), "Valid number" );
-	ok(!method( "123.000,00" ), "Invalid number" );
+	ok( method( "123.000,00" ), "Valid number" );
 	ok(!method( "123.0.0,0" ), "Invalid number" );
 	ok(!method( "x123" ), "Invalid number" );
 	ok(!method( "100.100,0,0" ), "Invalid number" );
+	ok( method( "1 123,00" ), "Valid number" );
+	ok( method( "-1 123,00" ), "Valid number" );
+	ok( method( "1 123.00" ), "Valid number" );
+	ok( method( "-1 123.00" ), "Valid number" );
 
 	ok( method( "" ), "Blank is valid" );
 	ok( method( "123" ), "Valid decimal" );
